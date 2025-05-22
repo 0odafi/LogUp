@@ -1,9 +1,7 @@
 package com.github.logup;
 
-import com.github.logup.auth.AuthManager;
 import org.bukkit.configuration.MemoryConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -12,10 +10,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class AuthManagerTest {
-    private AuthManager authManager;
+    private com.github.logup.auth.AuthManager authManager;
     private MemoryConfiguration config;
     private Player player;
-    private JavaPlugin plugin;
+    private Runnable sessionEndCallback;
 
     @BeforeEach
     void setUp() {
@@ -24,10 +22,10 @@ class AuthManagerTest {
         // Мокаем игрока
         player = mock(Player.class);
         when(player.getName()).thenReturn("TestPlayer");
-        // Мокаем JavaPlugin
-        plugin = mock(JavaPlugin.class);
-        // Инициализируем AuthManager с двумя аргументами
-        authManager = new AuthManager(plugin, config);
+        // Мокаем Runnable для sessionEndCallback
+        sessionEndCallback = mock(Runnable.class);
+        // Инициализируем AuthManager
+        authManager = new com.github.logup.auth.AuthManager(config, sessionEndCallback);
     }
 
     @Test
@@ -53,6 +51,8 @@ class AuthManagerTest {
 
         // Проверяем, что игрок получил сообщение об успешном логине
         verify(player, times(1)).sendMessage("Вы успешно вошли!");
+        // Проверяем, что вызван callback
+        verify(sessionEndCallback, times(1)).run();
     }
 
     @Test
@@ -66,5 +66,7 @@ class AuthManagerTest {
 
         // Проверяем, что игрок получил сообщение об ошибке
         verify(player, times(1)).sendMessage("Неверный пароль!");
+        // Проверяем, что callback не вызван
+        verify(sessionEndCallback, never()).run();
     }
 }
