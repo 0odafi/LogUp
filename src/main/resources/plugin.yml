@@ -1,0 +1,11 @@
+name: LogUpPlugin
+version: 1.0-SNAPSHOT
+main: com.github.logup.Main
+api-version: 1.21
+commands:
+  register:
+    description: Зарегистрировать нового игрока
+    usage: /<command> <password> <confirm-password>
+  login:
+    description: Войти в аккаунт
+    usage: /<command> <password>

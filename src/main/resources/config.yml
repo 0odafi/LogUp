@@ -1,0 +1,18 @@
+settings:
+  min-password-length: 6
+  max-password-length: 20
+messages:
+  register-success: "&aВы успешно зарегистрировались!"
+  register-usage: "&cИспользование: /register <пароль> <подтверждение>"
+  password-mismatch: "&cПароли не совпадают!"
+  password-too-short: "&cПароль слишком короткий! Минимум %min% символов."
+  password-too-long: "&cПароль слишком длинный! Максимум %max% символов."
+  already-registered: "&cВы уже зарегистрированы!"
+  login-success: "&aВы успешно вошли!"
+  login-usage: "&cИспользование: /login <пароль>"
+  login-failed: "&cНеверный пароль!"
+  not-registered: "&cВы не зарегистрированы! Используйте /register."
+  already-logged-in: "&cВы уже вошли!"
+  register-prompt: "&eЗарегистрируйтесь, используя /register <пароль> <подтверждение>"
+  login-prompt: "&eВойдите, используя /login <пароль>"
+  error: "&cПроизошла ошибка. Обратитесь к администратору."
