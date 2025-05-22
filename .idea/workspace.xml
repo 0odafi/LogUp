@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ec53328-4d37-4dec-b6ba-560c8d8a4e2c" name="Changes" comment="experimental">
+    <list default="true" id="9ec53328-4d37-4dec-b6ba-560c8d8a4e2c" name="Changes" comment="experimental 0.0.0.1">
       <change beforePath="D:/LogUp/.idea/workspace.xml" beforeDir="false" afterPath="D:/LogUp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="D:/LogUp/pom.xml" beforeDir="false" afterPath="D:/LogUp/pom.xml" afterDir="false" />
-      <change beforePath="D:/LogUp/src/main/java/com/github/logup/Main.java" beforeDir="false" afterPath="D:/LogUp/src/main/java/com/github/logup/Main.java" afterDir="false" />
-      <change beforePath="D:/LogUp/src/main/java/com/github/logup/auth/AuthManager.java" beforeDir="false" afterPath="D:/LogUp/src/main/java/com/github/logup/auth/AuthManager.java" afterDir="false" />
-      <change beforePath="D:/LogUp/src/main/java/com/github/logup/commands/LoginCommand.java" beforeDir="false" afterPath="D:/LogUp/src/main/java/com/github/logup/commands/LoginCommand.java" afterDir="false" />
-      <change beforePath="D:/LogUp/src/main/java/com/github/logup/commands/RegisterCommand.java" beforeDir="false" afterPath="D:/LogUp/src/main/java/com/github/logup/commands/RegisterCommand.java" afterDir="false" />
-      <change beforePath="D:/LogUp/src/main/java/com/github/logup/listeners/ChatListener.java" beforeDir="false" afterPath="D:/LogUp/src/main/java/com/github/logup/listeners/ChatListener.java" afterDir="false" />
       <change beforePath="D:/LogUp/src/test/java/com/github/logup/AuthManagerTest.java" beforeDir="false" afterPath="D:/LogUp/src/test/java/com/github/logup/AuthManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +17,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="D:/LogUp" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "0odafi"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/0odafi/LogUp.git",
+    "accountId": "d8d3d814-7b75-46ac-b581-9abb8f880d35"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 7
 }]]></component>
@@ -80,11 +87,20 @@
       <option name="project" value="LOCAL" />
       <updated>1747892524684</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="experimental 0.0.0.1">
+      <option name="closed" value="true" />
+      <created>1747895955010</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747895955010</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="experimental" />
-    <option name="LAST_COMMIT_MESSAGE" value="experimental" />
+    <MESSAGE value="experimental 0.0.0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="experimental 0.0.0.1" />
   </component>
 </project>
