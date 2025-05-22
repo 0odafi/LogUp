@@ -1,6 +1,6 @@
 package com.github.logup.auth;
 
-import com.github.logup.Main;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -11,24 +11,26 @@ import java.util.Set;
 import java.util.UUID;
 
 public class AuthManager {
-    private final Main plugin;
+    private final FileConfiguration config;
+    private final Runnable saveConfig;
     private final Set<UUID> loggedInPlayers = new HashSet<>();
     private final Set<UUID> notLoggedInPlayers = new HashSet<>();
     private final Map<UUID, String> pendingPasswords = new HashMap<>();
 
-    public AuthManager(Main plugin) {
-        this.plugin = plugin;
+    public AuthManager(FileConfiguration config, Runnable saveConfig) {
+        this.config = config;
+        this.saveConfig = saveConfig;
     }
 
     public void registerPlayer(Player player, String password) {
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
-        plugin.getConfig().set("players." + player.getUniqueId().toString() + ".password", hashedPassword);
-        plugin.saveConfig();
+        config.set("players." + player.getUniqueId().toString() + ".password", hashedPassword);
+        saveConfig.run();
         addPlayer(player);
     }
 
     public boolean loginPlayer(Player player, String password) {
-        String storedHash = plugin.getConfig().getString("players." + player.getUniqueId().toString() + ".password");
+        String storedHash = config.getString("players." + player.getUniqueId().toString() + ".password");
         if (storedHash == null) {
             return false;
         }
@@ -40,7 +42,7 @@ public class AuthManager {
     }
 
     public boolean isRegistered(Player player) {
-        return plugin.getConfig().contains("players." + player.getUniqueId().toString() + ".password");
+        return config.contains("players." + player.getUniqueId().toString() + ".password");
     }
 
     public void addNotLoggedInPlayer(Player player) {

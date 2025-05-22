@@ -18,7 +18,7 @@ public class LoginCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "Эта команда только для игроков!");
+            sender.sendMessage(ChatColor.RED + "This command is only for players!");
             return true;
         }
         Player player = (Player) sender;
@@ -48,7 +48,7 @@ public class LoginCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + config.getMessage("login-failed"));
             }
         } catch (Exception e) {
-            plugin.getLogger().severe("Ошибка при авторизации игрока " + player.getName() + ": " + e.getMessage());
+            plugin.getLogger().severe("Error logging in player " + player.getName() + ": " + e.getMessage());
             player.sendMessage(ChatColor.RED + config.getMessage("error"));
         }
         return true;

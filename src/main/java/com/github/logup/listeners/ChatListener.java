@@ -35,7 +35,7 @@ public class ChatListener implements Listener {
                             player.sendMessage(ChatColor.RED + config.getMessage("login-failed"));
                         }
                     } catch (Exception e) {
-                        plugin.getLogger().severe("Ошибка при авторизации через чат для " + player.getName() + ": " + e.getMessage());
+                        plugin.getLogger().severe("Error processing chat login for " + player.getName() + ": " + e.getMessage());
                         player.sendMessage(ChatColor.RED + config.getMessage("error"));
                     }
                 }

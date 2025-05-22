@@ -4,25 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ec53328-4d37-4dec-b6ba-560c8d8a4e2c" name="Changes" comment="">
-      <change afterPath="D:/LogUp/.gitignore" afterDir="false" />
-      <change afterPath="D:/LogUp/.idea/.gitignore" afterDir="false" />
-      <change afterPath="D:/LogUp/.idea/misc.xml" afterDir="false" />
-      <change afterPath="D:/LogUp/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="D:/LogUp/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="D:/LogUp/README.md" afterDir="false" />
-      <change afterPath="D:/LogUp/pom.xml" afterDir="false" />
-      <change afterPath="D:/LogUp/src/main/java/com/github/logup/Main.java" afterDir="false" />
-      <change afterPath="D:/LogUp/src/main/java/com/github/logup/auth/AuthManager.java" afterDir="false" />
-      <change afterPath="D:/LogUp/src/main/java/com/github/logup/commands/LoginCommand.java" afterDir="false" />
-      <change afterPath="D:/LogUp/src/main/java/com/github/logup/commands/RegisterCommand.java" afterDir="false" />
-      <change afterPath="D:/LogUp/src/main/java/com/github/logup/config/ConfigManager.java" afterDir="false" />
-      <change afterPath="D:/LogUp/src/main/java/com/github/logup/listeners/ChatListener.java" afterDir="false" />
-      <change afterPath="D:/LogUp/src/main/java/com/github/logup/listeners/JoinListener.java" afterDir="false" />
-      <change afterPath="D:/LogUp/src/main/java/com/github/logup/listeners/MovementListener.java" afterDir="false" />
-      <change afterPath="D:/LogUp/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="D:/LogUp/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="D:/LogUp/src/test/java/com/github/logup/AuthManagerTest.java" afterDir="false" />
+    <list default="true" id="9ec53328-4d37-4dec-b6ba-560c8d8a4e2c" name="Changes" comment="experimental">
+      <change beforePath="D:/LogUp/.idea/workspace.xml" beforeDir="false" afterPath="D:/LogUp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="D:/LogUp/pom.xml" beforeDir="false" afterPath="D:/LogUp/pom.xml" afterDir="false" />
+      <change beforePath="D:/LogUp/src/main/java/com/github/logup/Main.java" beforeDir="false" afterPath="D:/LogUp/src/main/java/com/github/logup/Main.java" afterDir="false" />
+      <change beforePath="D:/LogUp/src/main/java/com/github/logup/auth/AuthManager.java" beforeDir="false" afterPath="D:/LogUp/src/main/java/com/github/logup/auth/AuthManager.java" afterDir="false" />
+      <change beforePath="D:/LogUp/src/main/java/com/github/logup/commands/LoginCommand.java" beforeDir="false" afterPath="D:/LogUp/src/main/java/com/github/logup/commands/LoginCommand.java" afterDir="false" />
+      <change beforePath="D:/LogUp/src/main/java/com/github/logup/commands/RegisterCommand.java" beforeDir="false" afterPath="D:/LogUp/src/main/java/com/github/logup/commands/RegisterCommand.java" afterDir="false" />
+      <change beforePath="D:/LogUp/src/main/java/com/github/logup/listeners/ChatListener.java" beforeDir="false" afterPath="D:/LogUp/src/main/java/com/github/logup/listeners/ChatListener.java" afterDir="false" />
+      <change beforePath="D:/LogUp/src/test/java/com/github/logup/AuthManagerTest.java" beforeDir="false" afterPath="D:/LogUp/src/test/java/com/github/logup/AuthManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +72,19 @@
       <option name="presentableId" value="Default" />
       <updated>1747889080741</updated>
     </task>
+    <task id="LOCAL-00001" summary="experimental">
+      <option name="closed" value="true" />
+      <created>1747892524684</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747892524684</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="experimental" />
+    <option name="LAST_COMMIT_MESSAGE" value="experimental" />
   </component>
 </project>

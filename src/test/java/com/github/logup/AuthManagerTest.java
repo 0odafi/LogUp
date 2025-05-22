@@ -1,46 +1,65 @@
 package com.github.logup;
 
 import com.github.logup.auth.AuthManager;
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.MemoryConfiguration;
 import org.bukkit.entity.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mindrot.jbcrypt.BCrypt;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class AuthManagerTest {
-    private Main plugin;
     private AuthManager authManager;
+    private MemoryConfiguration config;
     private Player player;
 
     @BeforeEach
     void setUp() {
-        plugin = mock(Main.class);
-        authManager = new AuthManager(plugin);
-        player = mock(Player.class);
-        when(player.getUniqueId()).thenReturn(java.util.UUID.randomUUID());
+        // Создаём реальную MemoryConfiguration вместо мокинга
+        config = new MemoryConfiguration();
+        // Мокаем игрока
+        player = Mockito.mock(Player.class);
+        when(player.getName()).thenReturn("TestPlayer");
+        // Инициализируем AuthManager
+        authManager = new AuthManager(config);
     }
 
     @Test
     void testRegisterPlayer() {
-        FileConfiguration config = mock(FileConfiguration.class);
-        when(plugin.getConfig()).thenReturn(config);
-        authManager.registerPlayer(player, "test123");
-        verify(config).set(eq("players." + player.getUniqueId().toString() + ".password"), anyString());
-        verify(plugin).saveConfig();
-        assertTrue(authManager.isRegistered(player));
+        // Настраиваем конфигурацию
+        config.set("players.TestPlayer.password", null);
+
+        // Регистрируем игрока
+        boolean result = authManager.registerPlayer(player, "password123");
+
+        // Проверяем результат
+        assertTrue(result);
+        assertNotNull(config.getString("players.TestPlayer.password"));
     }
 
     @Test
     void testLoginSuccess() {
-        FileConfiguration config = mock(FileConfiguration.class);
-        String hashedPassword = BCrypt.hashpw("test123", BCrypt.gensalt());
-        when(plugin.getConfig()).thenReturn(config);
-        when(config.getString("players." + player.getUniqueId().toString() + ".password")).thenReturn(hashedPassword);
-        assertTrue(authManager.loginPlayer(player, "test123"));
-        assertFalse(authManager.isNotLoggedIn(player));
+        // Настраиваем конфигурацию с хешированным паролем
+        String hashedPassword = authManager.hashPassword("password123");
+        config.set("players.TestPlayer.password", hashedPassword);
+
+        // Проверяем успешный логин
+        boolean result = authManager.loginPlayer(player, "password123");
+
+        assertTrue(result);
+    }
+
+    @Test
+    void testLoginFailure() {
+        // Настраиваем конфигурацию с хешированным паролем
+        String hashedPassword = authManager.hashPassword("password123");
+        config.set("players.TestPlayer.password", hashedPassword);
+
+        // Проверяем неуспешный логин с неверным паролем
+        boolean result = authManager.loginPlayer(player, "wrongPassword");
+
+        assertFalse(result);
     }
 }

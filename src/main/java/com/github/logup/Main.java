@@ -19,26 +19,26 @@ public final class Main extends JavaPlugin {
         instance = this;
         saveDefaultConfig();
 
-        // Инициализация модулей
+        // Initialize modules
         configManager = new ConfigManager(this);
-        authManager = new AuthManager(this);
+        authManager = new AuthManager(getConfig(), this::saveConfig);
 
-        // Регистрация слушателей
+        // Register listeners
         getServer().getPluginManager().registerEvents(new ChatListener(this), this);
         getServer().getPluginManager().registerEvents(new JoinListener(this), this);
         getServer().getPluginManager().registerEvents(new MovementListener(this), this);
 
-        // Регистрация команд
+        // Register commands
         getCommand("register").setExecutor(new RegisterCommand(this));
         getCommand("login").setExecutor(new LoginCommand(this));
 
-        getLogger().info("LogUpPlugin успешно запущен!");
+        getLogger().info("LogUpPlugin successfully enabled!");
     }
 
     @Override
     public void onDisable() {
         saveConfig();
-        getLogger().info("LogUpPlugin отключен.");
+        getLogger().info("LogUpPlugin disabled.");
     }
 
     public static Main getInstance() {

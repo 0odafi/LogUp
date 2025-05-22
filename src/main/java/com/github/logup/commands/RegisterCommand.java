@@ -18,7 +18,7 @@ public class RegisterCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "Эта команда только для игроков!");
+            sender.sendMessage(ChatColor.RED + "This command is only for players!");
             return true;
         }
         Player player = (Player) sender;
@@ -43,12 +43,12 @@ public class RegisterCommand implements CommandExecutor {
         }
 
         if (password.length() < config.getMinPasswordLength()) {
-            player.sendMessage(ChatColor.RED + config.getMessage("password-too-short"));
+            player.sendMessage(ChatColor.RED + config.getMessage("password-too-short").replace("%min%", String.valueOf(config.getMinPasswordLength())));
             return true;
         }
 
         if (password.length() > config.getMaxPasswordLength()) {
-            player.sendMessage(ChatColor.RED + config.getMessage("password-too-long"));
+            player.sendMessage(ChatColor.RED + config.getMessage("password-too-long").replace("%max%", String.valueOf(config.getMaxPasswordLength())));
             return true;
         }
 
@@ -56,7 +56,7 @@ public class RegisterCommand implements CommandExecutor {
             plugin.getAuthManager().registerPlayer(player, password);
             player.sendMessage(ChatColor.GREEN + config.getMessage("register-success"));
         } catch (Exception e) {
-            plugin.getLogger().severe("Ошибка при регистрации игрока " + player.getName() + ": " + e.getMessage());
+            plugin.getLogger().severe("Error registering player " + player.getName() + ": " + e.getMessage());
             player.sendMessage(ChatColor.RED + config.getMessage("error"));
         }
         return true;
